@@ -468,16 +468,16 @@ class SawyerXYZEnv(SawyerMocapBase, metaclass=abc.ABCMeta):
         self.init_tcp = self.tcp_center
 
     def _get_state_rand_vec(self):
-        print("_get_state_rand_vec")
+        # print("_get_state_rand_vec")
         if self._last_rand_vec is None:
             self._last_rand_vec = np.random.uniform(
                 self._random_reset_space.low,
                 self._random_reset_space.high,
                 size=self._random_reset_space.low.size)
         self._freeze_rand_vec = True
-        print("FREEZE_INTO: ", self._freeze_rand_vec)
-        print("LST_RND_VEC: ", self._last_rand_vec)
-        print("SEEDED: ", self.seeded_rand_vec)
+        # print("FREEZE_INTO: ", self._freeze_rand_vec)
+        # print("LST_RND_VEC: ", self._last_rand_vec)
+        # print("SEEDED: ", self.seeded_rand_vec)
         if self._freeze_rand_vec:
             assert self._last_rand_vec is not None
             return self._last_rand_vec
