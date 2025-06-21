@@ -100,6 +100,7 @@ class SawyerXYZEnv(SawyerMocapBase, metaclass=abc.ABCMeta):
             action_rot_scale=1.,
     ):
         super().__init__(model_name, frame_skip=frame_skip)
+        print("SawyerXYZEnv, FREEZE", self._freeze_rand_vec)
         self.random_init = True
         self.action_scale = action_scale
         self.action_rot_scale = action_rot_scale
@@ -156,6 +157,7 @@ class SawyerXYZEnv(SawyerMocapBase, metaclass=abc.ABCMeta):
         pass
 
     def set_task(self, task):
+        print("SET TASK, FREEZE", self._freeze_rand_vec)
         self._set_task_called = True
         data = pickle.loads(task.data)
         assert isinstance(self, data['env_cls'])

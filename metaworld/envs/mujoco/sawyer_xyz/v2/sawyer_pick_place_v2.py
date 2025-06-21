@@ -33,6 +33,7 @@ class SawyerPickPlaceEnvV2(SawyerXYZEnv):
             hand_low=hand_low,
             hand_high=hand_high,
         )
+        print("SawyerPickPlaceEnvV2, FREEZE", self._freeze_rand_vec)
 
         self.init_config = {
             'obj_init_angle': .3,
