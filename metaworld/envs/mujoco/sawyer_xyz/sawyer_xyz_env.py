@@ -474,7 +474,7 @@ class SawyerXYZEnv(SawyerMocapBase, metaclass=abc.ABCMeta):
                 self._random_reset_space.low,
                 self._random_reset_space.high,
                 size=self._random_reset_space.low.size)
-            self._freeze_rand_vec = True
+        self._freeze_rand_vec = True
         print("FREEZE_INTO: ", self._freeze_rand_vec)
         print("LST_RND_VEC: ", self._last_rand_vec)
         print("SEEDED: ", self.seeded_rand_vec)
