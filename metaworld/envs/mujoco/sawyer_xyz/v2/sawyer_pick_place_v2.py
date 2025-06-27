@@ -105,11 +105,13 @@ class SawyerPickPlaceEnvV2(SawyerXYZEnv):
         ]
 
     def reset_model(self):
+        print("start_reset")
         self._reset_hand()
         self._target_pos = self.goal.copy()
         self.obj_init_pos = self.fix_extreme_obj_pos(self.init_config['obj_init_pos'])
         self.obj_init_angle = self.init_config['obj_init_angle']
 
+        print("random_init")
         if self.random_init:
             goal_pos = self._get_state_rand_vec()
             self._target_pos = goal_pos[3:]
@@ -121,10 +123,10 @@ class SawyerPickPlaceEnvV2(SawyerXYZEnv):
             self.init_tcp = self.tcp_center
             self.init_left_pad = self.get_body_com('leftpad')
             self.init_right_pad = self.get_body_com('rightpad')
-
+        print("_set_obj_xyz")
         self._set_obj_xyz(self.obj_init_pos)
         self.num_resets += 1
-
+        print("return")
         return self._get_obs()
 
     def _gripper_caging_reward(self, action, obj_position):
