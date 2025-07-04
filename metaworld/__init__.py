@@ -213,7 +213,7 @@ class MetaWorldEnv(gymnasium.Env):
         self.render_mode = render_mode
 
     def reset(self, seed=None, options=None):
-        print("MetaWorldEnv reset")
+        # print("MetaWorldEnv reset")
         # self.meta_env._freeze_rand_vec = False
         self.meta_env._freeze_rand_vec = not self.meta_env._last_rand_vec is None
         self.meta_env._set_task_called = True
